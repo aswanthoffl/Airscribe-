@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proza Libre">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body >
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+      <h2>Air Scribe Decipherer System</h2>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-end px-4" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'landing' %}"><i class="fa-solid fa-angles-left"></i>&nbsp; Go Back  &nbsp;&nbsp;</a>
+            </li></ul>
+        </div>
+    </div>
+</nav>
+
+
+
+   <div class="parent" >
+    <!-- <img src="{% static 'images/login.jpg'%}" width="100%" height="auto"> -->
+    <div class="login ">
+        <h4 class="heading" style="text-align: center; margin-bottom: 30px; margin-top:20px; color:brown;">LOGIN</h4>
+        <form method="post" action="{% url 'Login' %}">
+          {% csrf_token %}
+          <div class="form-group mb-2 ">
+            <label  class="l" for="exampleInputEmail1">Email address</label><br>
+            <input type="email"  name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email address" required>
+         
+          <!-- <div class="form-group"> -->
+            <label class="l" for="exampleInputPassword1">Password</label><br>
+            <!-- <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder=" Enter your password"> -->
+            <input type="password" name="password" class="form-control"id="passwordField" placeholder="Enter your password" required/>
+            <div style="font-size: 18px; margin-top: 10px;"><input type="checkbox" onclick="togglePasswordVisibility()"><span> Show Password</span></div>
+
+
+<script>
+  function togglePasswordVisibility() {
+    var passwordField = document.getElementById("passwordField");
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+    } else {
+      passwordField.type = "password";
+    }
+  }
+</script>
+<div class="text-center mt-5  ">
+
+  <button type="submit" class="btn btn-primary m-auto fonts " style="width:100%;">LOGIN</button>
+  <div class="ack">Don't have account?<a href="{% url 'user_registeration' %}">Register</a></div>
+</div>
+</form>
+  {{error}}
+  </div>
+</div>
+</div>
+</div>
+         
+         
+</body>
+</html>
+
+<style>
+  .fonts{
+    font-size: 20px;
+  }
+.parent{
+    width: 100%;
+    height: 925px;
+    background-image: url(../static/images/login.jpg);
+    background-size: cover;
+    padding-top: 300px;
+}
+.login{
+  /* font-size: 25px; */
+  padding: 20px;
+  margin: auto;
+  border-radius: 20px;
+  border-bottom: 10px;
+  background-color: white;
+  border-radius: 20px;
+}
+@media screen and (min-width: 480px) {
+  .login{
+  font-size: 150%;
+  width: 30%;
+  padding: 20px;
+  margin: auto;
+  border-radius: 20px;
+  border-bottom: 10px;
+  background-color: white;
+  border-radius: 20px;
+}
+}
+a{
+  text-decoration: none;
+  font-size: 100%;
+}
+.ack{
+  padding: 20px;
+  font-size: 20px;
+}
+.mb-2{
+  /* background-color: rgb(255, 255, 255); */
+  padding:20px;
+  border-radius: 20px;
+
+}
+.l{
+
+  padding-top:20px ;
+}
+input{
+    border: 2px solid rgba(0, 0, 0, 0.29) !important;
+  }
+
+
+</style>

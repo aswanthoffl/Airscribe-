@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ser review page</title>
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proza Libre">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <style>
+    .rate {
+      float: left;
+      height: 46px;
+      padding: 0px 10px;
+      /* text-align: center; */
+    }
+
+    .rate:not(:checked)>input {
+      position: absolute;
+      top: -9999px;
+    }
+
+    .rate:not(:checked)>label {
+      float: right;
+      width: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 30px;
+      color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+      content: '★ ';
+    }
+
+    .rate>input:checked~label {
+      color: #ffc700;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+      color: #deb217;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+      color: #c59b08;
+    }
+
+    .navbar {
+      background-color: #B7AC83;
+    }
+
+    .main {
+      background-image: url(../static/images/background2.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 925px;
+      height: 925px;
+      padding-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-body-tertiary" style="padding: 10px;">
+    <div class="container-fluid">
+      <h2>Air Scribe Decipherer System</h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_home' %}"><i class="fa-solid fa-angles-left"></i>&nbsp; Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid main">
+    <div class="d-flex justify-content-center pt-5">
+      <button type="button" class="btn btn-info  w-30 padding-top:70px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add your Review/Rating <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content" style="text-align:center;">
+            <div class="modal-header ">
+              <h5 class="modal-title" id="staticBackdropLabel" style="color: brown;">Review/Rating</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="forms-sample" action="{%  url 'user_view_review' %}" method="post">
+              {% csrf_token %}
+
+              <div class="modal-body flex-column d-flex gap-5 ">
+                <div class="form-group" style="text-align: left;">
+                  <label for="exampleTextarea1">Review</label>
+                  <textarea class="form-control" name="review" id="exampleTextarea1"></textarea>
+                  <div class="rate">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+              <div class="modal-footer ">
+                <button type="submit" class="btn btn-primary">submit</button>
+              </div>
+            </form>
+            </div>
+            <!-- <div>
+            {% if message %}
+        <p class="text-danger">{{message}}</p>
+        {% endif %}
+          </div> -->
+        </div>
+      </div>
+    </div>
+      <div style="width: 40%;margin: auto; text-align: center; font-size: large; padding: 10px;"> {% if message %}
+        <p class="text-danger">{{message}}</p>
+        {% endif %}
+      </div>
+    
+
+
+    <div class="pt-5">
+      <table class="table ">
+        <tr>
+          <th>NAME</th>
+          <th>REVIEW</th>
+          <th>RATING</th>
+          <th>POSTED ON:</th>
+        </tr>
+        {% for i in reviews %}
+        <tr>
+          <td>{% if i.user_id.Name %}
+            {{i.user_id.Name}}
+          {% endif %}</td>
+          <td>{% if i.review %}
+            {{i.review}}
+            {% endif %}</td>
+          <td>
+            <div>
+              <div style="color: rgb(233, 136, 10); font-size: 20px;">
+                {% for star_value in "★★★★★"|slice:i.rating %}
+                <span class="star">&#9733;</span>
+                {% endfor %}
+              </div>
+            </div>
+          <td>{{i.date}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+
+    <div class="pagination mt-3 d-flex justify-content-end pe-5 mb-4  fw-bold text-black text-end ">
+      <span class="step-links  ">
+        {% if reviews.has_previous %}
+        <a class="btn btn-dark" href="?page=1">&laquo; first</a>
+        <a class="btn btn-dark" href="?page={{ reviews.previous_page_number }}">previous</a>
+        {% endif %}
+        {% if reviews.has_next %}
+
+        <a href="?page={{ reviews.paginator.num_pages }}" class="text-decoration-none text-white btn btn-dark ">last
+          &raquo;</a>
+        {% endif %}
+
+        {% if reviews.has_next %}
+
+        <a href="?page={{ reviews.next_page_number }}" class="text-decoration-none text-white  btn btn-dark ">next</a>
+        {% endif %}
+
+        <span class="current text-white d-block ">
+          Page {{ reviews.number }} of {{ reviews.paginator.num_pages }}.
+        </span>
+      </span>
+    </div>
+  </div>
+
+</body>
+
+</html>

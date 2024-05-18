@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER HOME</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proza Libre">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shantell Sans">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <h2>Air Scribe Decipherer System</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end px-4" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%  url 'user_view_review' %}"style="color: crimson;"><i class="fa-solid fa-house"></i>&nbsp; Home &nbsp;&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_profile'%}"><i class="fa-solid fa-circle-user"></i>&nbsp; Profile&nbsp;&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                      <!-- <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                        <a class="nav-link" href="{% url 'user_view_review' %}">  <i class="fa-solid fa-star"></i>&nbsp; Reviews & Ratings</a>
+                      <!-- </a> -->
+                      <!-- <ul class="dropdown-menu " > -->
+                        <!-- <li><a class="dropdown-item" href="{% url 'user_view_review'%}">View</a></li> -->
+                        <!-- <li><hr class="dropdown-divider"></li> -->
+                        <!-- <li><a class="dropdown-item" href="{% url 'rating'%}">Add</a></li> -->
+              <!-- </ul></li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">
+                    </li> -->
+                    <li class="nav-item dropdown px-5">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          More</a>
+                        
+                        <ul class="dropdown-menu " >
+                          <li><a class="dropdown-item" href="{% url 'changepassword_user'%}">Change password</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                </ul></li></ul>
+            </div>
+        </div>
+    </nav>
+    <div class="parent">
+        
+        <div class="start text-center mt-5">
+            <span style="font-family: 'Shantell Sans'; color: white; font-size: 250%;">Start Air Scribe</span>
+            <!-- <div class="play-btn-box"> -->
+              <!-- <div class="play-btn-box"></div> -->
+                <!-- <div class="play-btn-line1" id="line1"> -->
+                    <!-- <div class="play-btn-line2" id="line2"> -->
+                    <!-- <div class="stable"><a href="www.youtube.com"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="white" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
+                    </svg></a></div>  -->
+                    <!-- <a class="play-btn" href="#"></a> -->
+                    <div class='container' style="padding-top: 0px;">
+  <a href="{% url 'air_scribe' %}" class='playBut' style="padding-top:10px;">
+    
+    <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
+    <svg version="1.1"
+       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+       x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7"
+       xml:space="preserve">
+    
+    <polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+      73.5,62.5 148.5,105.8 73.5,149.1 "/>
+      
+    <circle class='circle' id="XMLID_17_" fill="none"  stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3"/>
+    </svg>
+    
+    
+        
+      </a>
+    </div>
+           
+                <!-- </div> -->
+            <!-- </div> -->
+    </div>
+    <div style="background-color: white;">{{data}}       <!-- </div> -->
+           {% if saved_image %}
+           
+           <img src="{% static saved_image %}" alt="Image">
+         
+         
+          {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+<style>
+.parent{
+  width: 100%;
+    height: 1050px;
+    background-image: url(../static/images/background1.jpg);
+    background-size: cover;
+    padding-top: 300px;
+}
+.start{
+width:40%;
+  font-size: 25px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+  /* border-bottom: 10px; */
+  text-align: center;
+  height: fit-content;
+  background-color: rgba(23, 22, 22, 0.699);
+  /* border-radius: 20px; */
+  
+}
+/* .play-btn-box {
+  border: 2px rgba(255, 255, 255, 0.11) solid;
+  border-radius: 50%;
+  width: 287px;
+  height: 287px;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* @media screen and (min-width: 480px) {
+  .start{
+  font-size: 25px;
+  width: 30%;
+  padding: 20px;
+  margin: auto;
+  border-radius: 20px;
+  border-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.425);
+  border-radius: 20px;
+}
+} 
+
+.play-btn-line1 {
+  border: 2px rgba(255, 255, 255, 0.451) solid;
+  border-radius: 50%;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right-color: transparent;
+  animation: rotation 4s infinite linear;
+}
+
+.play-btn-line2 {
+  border: 2px rgba(255, 255, 255, 0.451) solid;
+  border-radius: 50%;
+  width: 172px;
+  height: 172px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right-color: transparent;
+  animation: rotation1 3s infinite linear;
+}
+
+.play-button {
+  background-color: rgb(255, 255, 255);
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.play-button .fas {
+  width: 30px;
+  height: 30px;
+  margin-left: 7px;
+  font-size: 30px;
+} */
+.container {
+  width: 100%;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.circle {
+  stroke:white;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  -webkit-transition: all 0.5s ease-in-out;
+  opacity: 0.3;
+}
+
+.playBut {
+/*  border: 1px solid red;*/
+  display: inline-block;
+  -webkit-transition: all 0.5s ease;
+  
+  .triangle {
+    -webkit-transition: all 0.7s ease-in-out;
+    stroke-dasharray: 240;
+    stroke-dashoffset: 480;
+    stroke:white;
+    transform: translateY(0) 
+   }
+  
+  
+  &:hover {
+    
+    .triangle {
+      stroke-dashoffset: 0;
+      opacity: 1;
+      stroke: white;
+      animation: nudge 0.7s ease-in-out;
+      
+      @keyframes nudge{
+        0% {
+          transform: translateX(0)  
+        }
+        30% {
+          transform: translateX(-5px)
+        }
+        50% {
+          transform: translateX(5px)
+        }
+        70% {
+          transform: translateX(-2px)
+        }
+        100% {
+          transform: translateX(0)
+        }
+      }
+    }
+    
+    .circle {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    
+  }
+}
+  
+a:hover{
+    color: blue;
+    transform: none;
+}
+.px-0{
+  padding-left: 5px;
+}
+</style>
